@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Finance Dashboard</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Finance Dashboard</h1>
+    <select id="roleSelect">
+      <option value="viewer">Viewer</option>
+      <option value="admin">Admin</option>
+    </select>
+    <button id="toggleDark">🌙</button>
+  </header>
+
+  <section class="cards">
+    <div class="card" id="balance">Balance: ₹0</div>
+    <div class="card" id="income">Income: ₹0</div>
+    <div class="card" id="expense">Expenses: ₹0</div>
+    <div class="card" id="budget">Budget: ₹0</div>
+  </section>
+
+  <section class="charts">
+    <canvas id="trendChart"></canvas>
+    <canvas id="categoryChart"></canvas>
+  </section>
+
+  <section class="transactions">
+    <h2>Transactions</h2>
+    <div class="filters">
+      <input type="text" id="search" placeholder="Search...">
+      <select id="typeFilter">
+        <option value="all">All Types</option>
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <select id="sortBy">
+        <option value="date">Sort by Date</option>
+        <option value="amount">Sort by Amount</option>
+        <option value="category">Sort by Category</option>
+      </select>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Date</th>
+          <th>Amount</th>
+          <th>Category</th>
+          <th>Type</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody id="transactionList"></tbody>
+    </table>
+
+    <div id="adminControls" class="hidden">
+      <h3>Add Transaction</h3>
+      <input type="date" id="date">
+      <input type="number" id="amount" placeholder="Amount">
+      <input type="text" id="category" placeholder="Category">
+      <select id="type">
+        <option value="income">Income</option>
+        <option value="expense">Expense</option>
+      </select>
+      <button onclick="addTransaction()">Add</button>
+      <h3>Set Budget</h3>
+      <input type="number" id="budgetInput" placeholder="Monthly Budget">
+      <button onclick="setBudget()">Set Budget</button>
+    </div>
+  </section>
+
+  <section class="insights">
+    <h2>Insights</h2>
+    <p id="topCategory"></p>
+    <p id="monthlyCompare"></p>
+  </section>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
+
+
+
+
+
